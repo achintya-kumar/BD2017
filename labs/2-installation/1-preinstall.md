@@ -66,6 +66,15 @@ sudo nano /etc/hosts
 10.0.1.5    kumarnode1.westeurope.cloudapp.azure.com kumarnode1.sws41cumpmnuhjudurv0qqubnf.ax.internal.cloudapp.net kumarnode1
 #Other nodes', if any, must be appended here.
 ```
+Using ```getent``` to list forward and reverse host lookups:
+```
+[achintya@kumarnode0 ~]$ getent hosts kumarnode0
+10.0.1.4        kumarnode0.westeurope.cloudapp.azure.com kumarnode0.sws41cumpmnuhjudurv0qqubnf.ax.internal.cloudapp.net kumarnode0
+
+[achintya@kumarnode0 ~]$ getent hosts 10.0.1.4
+10.0.1.4        kumarnode0.westeurope.cloudapp.azure.com kumarnode0.sws41cumpmnuhjudurv0qqubnf.ax.internal.cloudapp.net kumarnode0
+
+```
 ### Show the ```nscd``` service is running
 Installing the ```nscd``` package:
 ```
