@@ -148,6 +148,8 @@ sudo yum install nscd
 Starting nscd service:
 ```
 service nscd start
+# Making sure the service starts automatically at boot
+chkconfig nscd on
 ```
 Checking nscd status:
 ```
@@ -159,6 +161,7 @@ nscd (pid 2292) is running...
 Starting and checking the status of ```ntpd```:
 ```
 [achintya@kumarnode0 ~]$ service ntpd start
+[achintya@kumarnode0 ~]$ chkconfig ntpd on
 [achintya@kumarnode0 ~]$ service ntpd status
 ntpd (pid  1602) is running...
 ```
