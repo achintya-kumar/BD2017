@@ -96,7 +96,8 @@ tmpfs           6,9G     0  6,9G   0% /dev/shm
 ### Disable Transparent Hugepage Support
 To disable transparent hugepage compaction, the following must be appended to ```/etc/rc.local```.
 ```
-echo never > /sys/kernel/mm/redhat_transparent_hugepage/defrag
+echo never > /sys/kernel/mm/transparent_hugepage/defrag
+echo never > /sys/kernel/mm/transparent_hugepage/enabled
 ```
 ### Network Interface Configuration
 ```
