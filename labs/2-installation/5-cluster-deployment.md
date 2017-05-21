@@ -1,8 +1,8 @@
 ```
 {
-  "timestamp" : "2017-05-20T07:56:08.650Z",
+  "timestamp" : "2017-05-21T20:39:58.481Z",
   "clusters" : [ {
-    "name" : "Cluster 1",
+    "name" : "achintya-kumar",
     "version" : "CDH5",
     "services" : [ {
       "name" : "hive",
@@ -13,6 +13,9 @@
           "items" : [ {
             "name" : "hive_metastore_java_heapsize",
             "value" : "407896064"
+          }, {
+            "name" : "oom_heap_dump_enabled",
+            "value" : "false"
           } ]
         }, {
           "roleType" : "HIVESERVER2",
@@ -34,6 +37,15 @@
           }, {
             "name" : "hiveserver2_spark_yarn_executor_memory_overhead",
             "value" : "153"
+          }, {
+            "name" : "oom_heap_dump_enabled",
+            "value" : "false"
+          } ]
+        }, {
+          "roleType" : "WEBHCAT",
+          "items" : [ {
+            "name" : "oom_heap_dump_enabled",
+            "value" : "false"
           } ]
         } ],
         "items" : [ {
@@ -80,7 +92,7 @@
         "config" : {
           "items" : [ {
             "name" : "role_jceks_password",
-            "value" : "3islhbcf9vb16348iounvg6su"
+            "value" : "3wl3xj8l4lznu5kdo09ksapfg"
           } ]
         }
       }, {
@@ -92,7 +104,7 @@
         "config" : {
           "items" : [ {
             "name" : "role_jceks_password",
-            "value" : "ddpfuo0vnbrlxw7cwpt1hkqqp"
+            "value" : "35vfzzheijr1n9grxnqr5yzht"
           } ]
         }
       } ],
@@ -104,6 +116,9 @@
         "roleTypeConfigs" : [ {
           "roleType" : "SERVER",
           "items" : [ {
+            "name" : "oom_heap_dump_enabled",
+            "value" : "false"
+          }, {
             "name" : "zookeeper_server_java_heapsize",
             "value" : "407896064"
           } ]
@@ -119,7 +134,7 @@
         "config" : {
           "items" : [ {
             "name" : "role_jceks_password",
-            "value" : "eguualhjgduy8fxeahkmr88dr"
+            "value" : "9a5ynb6lat5m8w7i91h703x0m"
           }, {
             "name" : "serverId",
             "value" : "2"
@@ -134,7 +149,7 @@
         "config" : {
           "items" : [ {
             "name" : "role_jceks_password",
-            "value" : "thaz1n6phmxz8xdifbsvpfeq"
+            "value" : "2tqtsfjiwpyv654ydne43sr7x"
           }, {
             "name" : "serverId",
             "value" : "1"
@@ -179,7 +194,7 @@
         "config" : {
           "items" : [ {
             "name" : "role_jceks_password",
-            "value" : "m6ujsyaos6ndmdg88q5sbsy0"
+            "value" : "8femqwhgt45e45kfcigaqo4yk"
           }, {
             "name" : "secret_key",
             "value" : "6g14swCcCpvRj2xN5B558yoij0ghKt"
@@ -194,6 +209,9 @@
         "roleTypeConfigs" : [ {
           "roleType" : "OOZIE_SERVER",
           "items" : [ {
+            "name" : "oom_heap_dump_enabled",
+            "value" : "false"
+          }, {
             "name" : "oozie_database_host",
             "value" : "kumarnode1"
           }, {
@@ -230,7 +248,7 @@
         "config" : {
           "items" : [ {
             "name" : "role_jceks_password",
-            "value" : "39if5ocjr2o62t3djzfh1azl7"
+            "value" : "5cpg6fxu5o7g474rffnzdzugx"
           } ]
         }
       } ],
@@ -253,10 +271,16 @@
           "items" : [ {
             "name" : "mr2_jobhistory_java_heapsize",
             "value" : "407896064"
+          }, {
+            "name" : "oom_heap_dump_enabled",
+            "value" : "false"
           } ]
         }, {
           "roleType" : "NODEMANAGER",
           "items" : [ {
+            "name" : "oom_heap_dump_enabled",
+            "value" : "false"
+          }, {
             "name" : "yarn_nodemanager_heartbeat_interval_ms",
             "value" : "100"
           }, {
@@ -275,8 +299,17 @@
         }, {
           "roleType" : "RESOURCEMANAGER",
           "items" : [ {
+            "name" : "oom_heap_dump_enabled",
+            "value" : "false"
+          }, {
             "name" : "resource_manager_java_heapsize",
             "value" : "407896064"
+          }, {
+            "name" : "resourcemanager_fair_scheduler_assign_multiple",
+            "value" : "false"
+          }, {
+            "name" : "yarn_scheduler_fair_continuous_scheduling_enabled",
+            "value" : "true"
           }, {
             "name" : "yarn_scheduler_maximum_allocation_mb",
             "value" : "3623"
@@ -308,7 +341,7 @@
         "config" : {
           "items" : [ {
             "name" : "role_jceks_password",
-            "value" : "6zb71rjysvofenzxo82ev0m6v"
+            "value" : "ekubea9ph4f8mm5rrptzrvhmp"
           } ]
         }
       }, {
@@ -320,7 +353,7 @@
         "config" : {
           "items" : [ {
             "name" : "role_jceks_password",
-            "value" : "dpbpi8qj306se478qutr4dmb5"
+            "value" : "esziumx3t3jpfbr1hcy2ftxhv"
           } ]
         }
       }, {
@@ -332,7 +365,7 @@
         "config" : {
           "items" : [ {
             "name" : "role_jceks_password",
-            "value" : "rdvaihhrygls7wu5rmkt8xv0"
+            "value" : "7akptjkgfrzev0ydnm5ezt8ac"
           } ]
         }
       }, {
@@ -347,7 +380,7 @@
             "value" : "39"
           }, {
             "name" : "role_jceks_password",
-            "value" : "erragbtpa5locx0g2t9rqkvx7"
+            "value" : "e1d0ecl6cci50xlmsyq587ci"
           } ]
         }
       } ],
@@ -376,12 +409,33 @@
           }, {
             "name" : "dfs_datanode_max_locked_memory",
             "value" : "3798990848"
+          }, {
+            "name" : "oom_heap_dump_enabled",
+            "value" : "false"
+          } ]
+        }, {
+          "roleType" : "FAILOVERCONTROLLER",
+          "items" : [ {
+            "name" : "oom_heap_dump_enabled",
+            "value" : "false"
           } ]
         }, {
           "roleType" : "GATEWAY",
           "items" : [ {
             "name" : "dfs_client_use_trash",
             "value" : "true"
+          } ]
+        }, {
+          "roleType" : "HTTPFS",
+          "items" : [ {
+            "name" : "oom_heap_dump_enabled",
+            "value" : "false"
+          } ]
+        }, {
+          "roleType" : "JOURNALNODE",
+          "items" : [ {
+            "name" : "oom_heap_dump_enabled",
+            "value" : "false"
           } ]
         }, {
           "roleType" : "NAMENODE",
@@ -391,12 +445,24 @@
           }, {
             "name" : "dfs_namenode_servicerpc_address",
             "value" : "8022"
+          }, {
+            "name" : "oom_heap_dump_enabled",
+            "value" : "false"
+          } ]
+        }, {
+          "roleType" : "NFSGATEWAY",
+          "items" : [ {
+            "name" : "oom_heap_dump_enabled",
+            "value" : "false"
           } ]
         }, {
           "roleType" : "SECONDARYNAMENODE",
           "items" : [ {
             "name" : "fs_checkpoint_dir_list",
             "value" : "/dfs/snn"
+          }, {
+            "name" : "oom_heap_dump_enabled",
+            "value" : "false"
           } ]
         } ],
         "items" : [ {
@@ -437,7 +503,7 @@
         "config" : {
           "items" : [ {
             "name" : "role_jceks_password",
-            "value" : "5sslmxhhs0jltqy1rtuu3xj5a"
+            "value" : "5ad7lzq8m7kl2goczq862h82q"
           } ]
         }
       }, {
@@ -449,7 +515,7 @@
         "config" : {
           "items" : [ {
             "name" : "role_jceks_password",
-            "value" : "1pu8cin1rxjm4eq8qdgijgq5i"
+            "value" : "ehj09s8sq2oadqsr6rj7iuqvq"
           } ]
         }
       }, {
@@ -464,7 +530,7 @@
             "value" : "41"
           }, {
             "name" : "role_jceks_password",
-            "value" : "4wpkjk2tzu12rztna3m8j9qj2"
+            "value" : "8mn8ccaorrvp3pw1vvjafxgrh"
           } ]
         }
       }, {
@@ -476,7 +542,7 @@
         "config" : {
           "items" : [ {
             "name" : "role_jceks_password",
-            "value" : "1k8o64j9p898h27occm9ioznj"
+            "value" : "1r8ufwpm6cjbni6udl2338n1"
           } ]
         }
       } ],
@@ -506,26 +572,26 @@
   "users" : [ {
     "name" : "__cloudera_internal_user__mgmt-EVENTSERVER-bb77996d471b66d313ff976e5a4cedf2",
     "roles" : [ "ROLE_USER" ],
-    "pwHash" : "4776609a8c571033526d4321f17395165151812bd50100fa680586a659ff0073",
-    "pwSalt" : -4391258824288477485,
+    "pwHash" : "dddfd3da6833c2c9775c4634d8207f31bb302972fde94319cf4dfd4aca818732",
+    "pwSalt" : -760347281301086914,
     "pwLogin" : true
   }, {
     "name" : "__cloudera_internal_user__mgmt-HOSTMONITOR-bb77996d471b66d313ff976e5a4cedf2",
     "roles" : [ "ROLE_USER" ],
-    "pwHash" : "c34c1e93ef7d471ed65476d0ae6db15825e02ea909c5be885b738389f480a216",
-    "pwSalt" : -2014304282436428999,
+    "pwHash" : "28829e9b999e306e5329e9ff58e7c9907708fc10182e1a1778de4c146bea6b58",
+    "pwSalt" : 659275294753684954,
     "pwLogin" : true
   }, {
     "name" : "__cloudera_internal_user__mgmt-REPORTSMANAGER-bb77996d471b66d313ff976e5a4cedf2",
     "roles" : [ "ROLE_USER" ],
-    "pwHash" : "7b299593bbd005b81fafb63f5240b10300f51707a9f2c0c4a7cb98e2688aaf5e",
-    "pwSalt" : 5426844928054973755,
+    "pwHash" : "18c42c708c1297cc4953b451f61329052d96d5f3181bcc4163039a1537b69488",
+    "pwSalt" : 1398704168903740495,
     "pwLogin" : true
   }, {
     "name" : "__cloudera_internal_user__mgmt-SERVICEMONITOR-bb77996d471b66d313ff976e5a4cedf2",
     "roles" : [ "ROLE_USER" ],
-    "pwHash" : "b6c0eb4d13d922ba8ff4a10016162961d6bd8b6401236dd74a46657032fefaa5",
-    "pwSalt" : -8389082665676611862,
+    "pwHash" : "f66bf21d1b829a4cf25cd86806c4f17e5a9832d04d6c28e8d2c153e3d70d0b8e",
+    "pwSalt" : -3077579819403137317,
     "pwLogin" : true
   }, {
     "name" : "admin",
@@ -535,10 +601,10 @@
     "pwLogin" : true
   } ],
   "versionInfo" : {
-    "version" : "5.8.3",
+    "version" : "5.9.2",
     "buildUser" : "jenkins",
-    "buildTimestamp" : "20161019-1014",
-    "gitHash" : "518f0d6d44abc87bc392646e4369a20c8192b7cf",
+    "buildTimestamp" : "20170330-1814",
+    "gitHash" : "822da28bff818f57fc1bfc3eafe3a550300ef1b0",
     "snapshot" : false
   },
   "managementService" : {
@@ -546,25 +612,52 @@
     "type" : "MGMT",
     "config" : {
       "roleTypeConfigs" : [ {
+        "roleType" : "ACTIVITYMONITOR",
+        "items" : [ {
+          "name" : "oom_heap_dump_enabled",
+          "value" : "false"
+        } ]
+      }, {
+        "roleType" : "ALERTPUBLISHER",
+        "items" : [ {
+          "name" : "oom_heap_dump_enabled",
+          "value" : "false"
+        } ]
+      }, {
         "roleType" : "EVENTSERVER",
         "items" : [ {
           "name" : "event_server_heapsize",
           "value" : "407896064"
+        }, {
+          "name" : "oom_heap_dump_enabled",
+          "value" : "false"
         } ]
       }, {
         "roleType" : "HOSTMONITOR",
         "items" : [ {
-          "name" : "firehose_heapsize",
-          "value" : "407896064"
-        }, {
           "name" : "firehose_non_java_memory_bytes",
           "value" : "805306368"
+        }, {
+          "name" : "oom_heap_dump_enabled",
+          "value" : "false"
         }, {
           "name" : "role_config_suppression_firehose_heap_size_validator",
           "value" : "true"
         }, {
           "name" : "role_config_suppression_firehose_non_java_memory_validator",
           "value" : "true"
+        } ]
+      }, {
+        "roleType" : "NAVIGATOR",
+        "items" : [ {
+          "name" : "oom_heap_dump_enabled",
+          "value" : "false"
+        } ]
+      }, {
+        "roleType" : "NAVIGATORMETASERVER",
+        "items" : [ {
+          "name" : "oom_heap_dump_enabled",
+          "value" : "false"
         } ]
       }, {
         "roleType" : "REPORTSMANAGER",
@@ -583,15 +676,18 @@
         }, {
           "name" : "headlamp_heapsize",
           "value" : "407896064"
+        }, {
+          "name" : "oom_heap_dump_enabled",
+          "value" : "false"
         } ]
       }, {
         "roleType" : "SERVICEMONITOR",
         "items" : [ {
-          "name" : "firehose_heapsize",
-          "value" : "407896064"
-        }, {
           "name" : "firehose_non_java_memory_bytes",
           "value" : "805306368"
+        }, {
+          "name" : "oom_heap_dump_enabled",
+          "value" : "false"
         }, {
           "name" : "role_config_suppression_firehose_heap_size_validator",
           "value" : "true"
@@ -611,7 +707,7 @@
       "config" : {
         "items" : [ {
           "name" : "role_jceks_password",
-          "value" : "dxl452ah1oczmtdmfcntlvww9"
+          "value" : "dlotjdthv0o4yw1a2srb00na"
         } ]
       }
     }, {
@@ -623,7 +719,7 @@
       "config" : {
         "items" : [ {
           "name" : "role_jceks_password",
-          "value" : "f4mxvvpxi76lr8ppr0kxzk9tq"
+          "value" : "euzu1e2gl28d21xjul0grfmuz"
         } ]
       }
     }, {
@@ -635,7 +731,7 @@
       "config" : {
         "items" : [ {
           "name" : "role_jceks_password",
-          "value" : "avihn3dlggxtxs2rem96xtc1z"
+          "value" : "5jzn1cfha7dgz1imrogmpz6we"
         } ]
       }
     }, {
@@ -647,7 +743,7 @@
       "config" : {
         "items" : [ {
           "name" : "role_jceks_password",
-          "value" : "e38b3lguno4jj88tc2gwhpy2g"
+          "value" : "21iozxgqwxg68rjpceyspkxns"
         } ]
       }
     }, {
@@ -659,7 +755,7 @@
       "config" : {
         "items" : [ {
           "name" : "role_jceks_password",
-          "value" : "233kcaou6bq9wqsp3bphbsopc"
+          "value" : "6hjttuscksbypqh3x9cacb194"
         } ]
       }
     } ],
@@ -674,7 +770,7 @@
       "value" : "NOT_ON_PUBLIC_CLOUD"
     }, {
       "name" : "REMOTE_PARCEL_REPO_URLS",
-      "value" : "https://archive.cloudera.com/cdh5/parcels/{latest_supported}/,https://archive.cloudera.com/cdh4/parcels/latest/,https://archive.cloudera.com/impala/parcels/latest/,https://archive.cloudera.com/search/parcels/latest/,https://archive.cloudera.com/accumulo/parcels/1.4/,https://archive.cloudera.com/accumulo-c5/parcels/latest/,https://archive.cloudera.com/kafka/parcels/latest/,https://archive.cloudera.com/navigator-keytrustee5/parcels/latest/,https://archive.cloudera.com/spark/parcels/latest/,https://archive.cloudera.com/sqoop-connectors/parcels/latest/"
+      "value" : "https://archive.cloudera.com/cdh5/parcels/{latest_supported}/,http://localhost/cdh5.9/,http://localhost/cdh4.7/,https://archive.cloudera.com/impala/parcels/latest/,https://archive.cloudera.com/search/parcels/latest/,https://archive.cloudera.com/accumulo/parcels/1.4/,https://archive.cloudera.com/accumulo-c5/parcels/latest/,https://archive.cloudera.com/kafka/parcels/latest/,https://archive.cloudera.com/navigator-keytrustee5/parcels/latest/,http://localhost/spark0.9/,https://archive.cloudera.com/sqoop-connectors/parcels/latest/"
     } ]
   }
 }
