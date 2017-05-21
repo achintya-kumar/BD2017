@@ -1,4 +1,4 @@
-## The nodes used for this assignment have the following specifications:
+### The nodes used for this assignment have the following specifications:
 Operating System: CentOS 6.9
 Hardware: Standard DS11 (2 cores, 14 GB memory) from Microsoft Azure
 Number of Nodes: 2
