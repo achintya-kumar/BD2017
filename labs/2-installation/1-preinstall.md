@@ -1,6 +1,6 @@
 ### The nodes used for this assignment have the following specifications:
-Operating System: CentOS 6.9
-Hardware: Standard DS11 (2 cores, 14 GB memory) from Microsoft Azure
+Operating System: CentOS 6.9  
+Hardware: Standard DS11 (2 cores, 14 GB memory) from Microsoft Azure  
 Number of Nodes: 2
 
 ### Disable SELinux & Kernel Firewall
