@@ -1,51 +1,9 @@
-### Installing Oracle JDK
-Download Oracle JDK 1.8 using the following command.
-```
-wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u102-b14/jdk-8u102-linux-x64.rpm
-```
-Install the downloaded .rpm file using the following command. 
-```
-sudo yum localinstall jdk-8u102-linux-x64.rpm
-```
-Set the environment variables in ```.bash_profile``` file.
-```
-# User specific environment and startup programs
+## The nodes used for this assignment have the following specifications:
+Operating System: CentOS 6.9
+Hardware: Standard DS11 (2 cores, 14 GB memory) from Microsoft Azure
+Number of Nodes: 2
 
-export JAVA_HOME=/usr/java/jdk1.8.0_102/
-export JRE_HOME=/usr/java/jdk1.8.0_102/jre
-
-PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
-
-export PATH
-```
-Source the ```.bash_profile``` file and test the set environment variables.
-```
-$ source .bash_profile
-
-$ echo $JRE_HOME
-/usr/java/jdk1.8.0_102/jre
-
-$ echo $JAVA_HOME
-/usr/java/jdk1.8.0_102/
-
-$ echo $PATH
-/...:/usr/local/bin:/usr/X11R6/bin:/home/mkyong/bin:/usr/java/jdk1.8.0_102//bin
-```
-When multiple JDKs are present, a choice can be made as follows:
-```
-$ sudo alternatives --config java
-[sudo] password for mkyong:
-
-There are 2 programs which provide 'java'.
-
-  Selection    Command
------------------------------------------------
-   1           /usr/lib/jvm/jre-1.6.0-openjdk.x86_64/bin/java
-*+ 2           /usr/java/jdk1.8.0_102/jre/bin/java
-
-Enter to keep the current selection[+], or type selection number:
-```
-### Disable SELinux
+### Disable SELinux & Kernel Firewall
 The value of the parameter ```SELINUX``` must be set to ```disabled```.
 ```
 [achintya@kumarnode0 ~]$ sudo nano /etc/sysconfig/selinux
@@ -62,6 +20,13 @@ SELINUX=disabled
 SELINUXTYPE=targeted 
 
 ```
+Let us now disable the kernel firewall.
+```
+sudo /etc/init.d/iptables stop
+sudo /etc/init.d/ip6tables stop
+sudo chkconfig iptables off
+sudo chkconfig ip6tables off
+```
 
 ### Checking and setting swappiness
 Display swappiness value:
@@ -76,6 +41,11 @@ Altering the swappiness value:
 ```
 sudo sysctl -w vm.swappiness=10 
 ```
+To make this change permanent:
+```
+sudo nano /etc/sysctl.conf 
+```
+Add ```vm.swappiness=1``` to the file above.
 
 
 ### Mount Attributes of all volumes
@@ -86,24 +56,27 @@ df -h
 Output:
 ```
 Filesystem      Size  Used Avail Use% Mounted on
-/dev/sda1        30G  2,8G   26G  10% /
+/dev/sda1        30G   14G   15G  47% /
 tmpfs           6,9G     0  6,9G   0% /dev/shm
-/dev/sdb1        99G   60M   94G   1% /mnt/resource
+/dev/sdb1        28G  322M   26G   2% /mnt/resource
+
 ```
 
 ### Show the reserve space of any non-root, ext-based volumes
 #### TBD
 ### Disable Transparent Hugepage Support
+
 To disable transparent hugepage compaction, the following must be appended to ```/etc/rc.local```.
 ```
 echo never > /sys/kernel/mm/transparent_hugepage/defrag
 echo never > /sys/kernel/mm/transparent_hugepage/enabled
 ```
+Additionally, appent ```transparent_hugepage=never``` to the line ```kernel``` inside the file ```/etc/grub.conf```.
 ### Network Interface Configuration
 ```
 [achintya@kumarnode0 ~]$ ifconfig 
 eth0      Link encap:Ethernet  HWaddr 00:0D:3A:22:CA:76  
-          inet addr:10.0.1.4  Bcast:10.0.1.255  Mask:255.255.255.0
+          inet addr:10.0.0.4  Bcast:10.0.0.255  Mask:255.255.255.0
           inet6 addr: fe80::20d:3aff:fe22:ca76/64 Scope:Link
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
           RX packets:338 errors:0 dropped:0 overruns:0 frame:0
@@ -128,18 +101,17 @@ sudo nano /etc/hosts
 ```
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
-10.0.1.4    kumarnode0.westeurope.cloudapp.azure.com kumarnode0.sws41cumpmnuhjudurv0qqubnf.ax.internal.cloudapp.net kumarnode0
-10.0.1.5    kumarnode1.westeurope.cloudapp.azure.com kumarnode1.sws41cumpmnuhjudurv0qqubnf.ax.internal.cloudapp.net kumarnode1
+10.0.0.4    kumarnode1
+10.0.0.5    kumarnode2
 #Other nodes', if any, must be appended here.
 ```
 Using ```getent``` to list forward and reverse host lookups:
 ```
 [achintya@kumarnode0 ~]$ getent hosts kumarnode0
-10.0.1.4        kumarnode0.westeurope.cloudapp.azure.com kumarnode0.sws41cumpmnuhjudurv0qqubnf.ax.internal.cloudapp.net kumarnode0
+10.0.1.4        kumarnode1
 
-[achintya@kumarnode0 ~]$ getent hosts 10.0.1.4
-10.0.1.4        kumarnode0.westeurope.cloudapp.azure.com kumarnode0.sws41cumpmnuhjudurv0qqubnf.ax.internal.cloudapp.net kumarnode0
-
+[achintya@kumarnode0 ~]$ getent hosts 10.0.0.4
+10.0.1.4        kumarnode1
 ```
 ### Show the ```nscd``` service is running
 Installing the ```nscd``` package:
@@ -166,3 +138,5 @@ Starting and checking the status of ```ntpd```:
 [achintya@kumarnode0 ~]$ service ntpd status
 ntpd (pid  1602) is running...
 ```
+## Reboot
+```sudo reboot```
