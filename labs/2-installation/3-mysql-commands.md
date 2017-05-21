@@ -25,8 +25,19 @@ mysql> show databases;
 | Database           |
 +--------------------+
 | information_schema |
+| amon               |
+| hive               |
+| hue                |
 | mysql              |
+| nav                |
+| navms              |
+| oozie              |
 | performance_schema |
+| rman               |
+| scm                |
+| sentry             |
 +--------------------+
-3 rows in set (0.00 sec)
+12 rows in set (0.00 sec)
+
+mysql> 
 ```
