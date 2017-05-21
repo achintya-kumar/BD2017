@@ -108,10 +108,10 @@ sudo nano /etc/hosts
 Using ```getent``` to list forward and reverse host lookups:
 ```
 [achintya@kumarnode0 ~]$ getent hosts kumarnode0
-10.0.1.4        kumarnode1
+10.0.0.4        kumarnode1
 
 [achintya@kumarnode0 ~]$ getent hosts 10.0.0.4
-10.0.1.4        kumarnode1
+10.0.0.4        kumarnode1
 ```
 ### Show the ```nscd``` service is running
 Installing the ```nscd``` package:
