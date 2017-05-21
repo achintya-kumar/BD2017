@@ -3,13 +3,14 @@
 The Linux distribution in use is CentOS 6.9 which is categorized as EL6.
 An rpm file is downloaded and installed using the following commands. It is necessary to point out that in the installed rpm file, MySQL 5.6 is enabled by default.
 ```
-[achintya@kumarnode0 ~]$ wget http://repo.mysql.com/mysql-community-release-el6-7.noarch.rpm
-[achintya@kumarnode0 ~]$ sudo rpm -ivh mysql-community-release-el6-7.noarch.rpm
+[achintya@kumarnode1 ~]$ wget http://repo.mysql.com/mysql-community-release-el6-7.noarch.rpm
+[achintya@kumarnode1 ~]$ sudo rpm -ivh mysql-community-release-el6-7.noarch.rpm
 ```
 As mentioned above, the default version of MySQL enabled in this repository is 5.6. This maybe altered using the following commands.
 ```
-[achintya@kumarnode0 ~]$ sudo yum-config-manager --disable mysql56-community
-[achintya@kumarnode0 ~]$ sudo yum-config-manager --enable mysql55-community
+[achintya@kumarnode1 ~]$ sudo yum-config-manager --disable mysql56-community
+[achintya@kumarnode1 ~]$ sudo yum-config-manager --enable mysql55-community
+[achintya@kumarnode1 ~]$ sudo yum update -y
 ```
 
 #### Install the mysql package on all nodes
@@ -80,19 +81,26 @@ Dependency Installed:
   mysql-community-common.x86_64 0:5.5.56-2.el6                    
   mysql-community-libs.x86_64 0:5.5.56-2.el6 
 ```
+
+#### Display MySQL Version
+```
+[achintya@kumarnode1 ~]$ mysql --version
+mysql  Ver 14.14 Distrib 5.5.56, for Linux (x86_64) using readline 5.1
+```
+
 #### Download and copy the JDBC connector to all nodes.
 Download the MySQL JDBC driver:
 ```
-[achintya@kumarnode0 ~]$ wget https://cdn.mysql.com//Downloads/Connector-J/mysql-connector-java-5.1.42.tar.gz
+[achintya@kumarnode1 ~]$ wget https://cdn.mysql.com//Downloads/Connector-J/mysql-connector-java-5.1.42.tar.gz
 
 ```
 The JDBC JAR file is extracted as follows:
 ```
-[achintya@kumarnode2 ~]$ tar zxvf mysql-connector-java-5.1.42.tar.gz
+[achintya@kumarnode1 ~]$ tar zxvf mysql-connector-java-5.1.42.tar.gz
 ```
 Copy the JDBC driver JAR file to ```/usr/share``` folder.
 ```
-[achintya@kumarnode2 ~]$ sudo cp mysql-connector-java-5.1.31/mysql-connector-java-5.1.31-bin.jar /usr/share/java/mysql-connector-java.jar
+[achintya@kumarnode1 ~]$ sudo cp mysql-connector-java-5.1.42/mysql-connector-java-5.1.42.jar /usr/share/java/mysql-connector-java.jar
 ```
 
 ### YUM repository file
