@@ -39,7 +39,7 @@ vm.swappiness = 60
 ```
 Altering the swappiness value:
 ```
-sudo sysctl -w vm.swappiness=10 
+sudo sysctl -w vm.swappiness=1
 ```
 To make this change permanent:
 ```
