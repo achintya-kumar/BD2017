@@ -107,7 +107,7 @@ sudo nano /etc/hosts
 ```
 Using ```getent``` to list forward and reverse host lookups:
 ```
-[achintya@kumarnode0 ~]$ getent hosts kumarnode0
+[achintya@kumarnode0 ~]$ getent hosts kumarnode1
 10.0.0.4        kumarnode1
 
 [achintya@kumarnode0 ~]$ getent hosts 10.0.0.4
