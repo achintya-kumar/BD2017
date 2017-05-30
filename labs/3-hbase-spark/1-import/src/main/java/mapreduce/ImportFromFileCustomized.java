@@ -69,8 +69,7 @@ public class ImportFromFileCustomized {
      * @throws IOException When mapping the input fails.
      */
     @Override
-    public void map(LongWritable offset, Text line, Context context) // co ImportFromFile-3-Map The map() function transforms the key/value provided by the InputFormat to what is needed by the OutputFormat.
-    throws IOException {
+    public void map(LongWritable offset, Text line, Context context) throws IOException {
       try {
         String lineString = line.toString();
 
@@ -92,8 +91,8 @@ public class ImportFromFileCustomized {
 	String[] lineStringTokenized = lineString.split(regex, -1);
         byte[] rowkey = Bytes.toBytes(lineStringTokenized[0] + "_" + lineStringTokenized[1]);
         Put put = new Put(rowkey);
-        for(int i = 2; i <= lineStringTokenized.length-1; i++)
-        	put.addColumn(family, Bytes.toBytes("Column-" + (i-1)), Bytes.toBytes(lineStringTokenized[i])); // co ImportFromFile-5-Put Store the original data in a column in the given table.
+        for(int i = 3; i <= lineStringTokenized.length-1; i++)
+        	put.addColumn(family, Bytes.toBytes("Column-" + i), Bytes.toBytes(lineStringTokenized[i]));
 
         context.write(new ImmutableBytesWritable(rowkey), put);
         context.getCounter(Counters.LINES).increment(1);
