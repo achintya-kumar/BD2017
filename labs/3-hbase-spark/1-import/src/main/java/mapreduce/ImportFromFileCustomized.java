@@ -73,7 +73,23 @@ public class ImportFromFileCustomized {
     throws IOException {
       try {
         String lineString = line.toString();
-        String[] lineStringTokenized = lineString.split(",");
+
+	String otherThanQuote = " [^\"] ";
+        String quotedString = String.format(" \" %s* \" ", otherThanQuote);
+        String regex = String.format("(?x) "+ // enable comments, ignore white spaces
+                ",                         "+ // match a comma
+                "(?=                       "+ // start positive look ahead
+                "  (?:                     "+ //   start non-capturing group 1
+                "    %s*                   "+ //     match 'otherThanQuote' zero or more times
+                "    %s                    "+ //     match 'quotedString'
+                "  )*                      "+ //   end group 1 and repeat it zero or more times
+                "  %s*                     "+ //   match 'otherThanQuote'
+                "  $                       "+ // match the end of the string
+                ")                         ", // stop positive look ahead
+                otherThanQuote, quotedString, otherThanQuote);        
+
+
+	String[] lineStringTokenized = lineString.split(regex, -1);
         byte[] rowkey = Bytes.toBytes(lineStringTokenized[0] + "_" + lineStringTokenized[1]);
         Put put = new Put(rowkey);
         for(int i = 2; i <= lineStringTokenized.length-1; i++)
