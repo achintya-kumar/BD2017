@@ -92,7 +92,6 @@ public class ImportFromFileCustomized {
         byte[] rowkey = Bytes.toBytes(lineStringTokenized[0] + "_" + lineStringTokenized[1]);
         Put put = new Put(rowkey);
         for(int i = 2; i < lineStringTokenized.length; i++){
-        	System.out.println("Value at position " + i + " being placed in Column " + (i+1));
         	put.addColumn(family, Bytes.toBytes("Column-" + (i+1)), Bytes.toBytes(lineStringTokenized[i]));
         }
 
