@@ -1,5 +1,7 @@
 package mapreduce;
 
+package mapreduce;
+
 import java.io.IOException;
 
 import org.apache.commons.cli.CommandLine;
@@ -73,7 +75,7 @@ public class ImportFromFileCustomized {
       try {
         String lineString = line.toString();
 
-	String otherThanQuote = " [^\"] ";
+        String otherThanQuote = " [^\"] ";
         String quotedString = String.format(" \" %s* \" ", otherThanQuote);
         String regex = String.format("(?x) " + // enable comments, ignore white spaces
                 ",                         " + // match a comma
@@ -87,8 +89,8 @@ public class ImportFromFileCustomized {
                 ")                         ", // stop positive look ahead
                 otherThanQuote, quotedString, otherThanQuote);        
 
-
-	String[] lineStringTokenized = lineString.split(regex, -1);
+        
+        String[] lineStringTokenized = lineString.split(regex, -1);
         byte[] rowkey = Bytes.toBytes(lineStringTokenized[0] + "_" + lineStringTokenized[1]);
         Put put = new Put(rowkey);
         for(int i = 2; i < lineStringTokenized.length; i++){
