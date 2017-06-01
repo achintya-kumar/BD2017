@@ -18,7 +18,6 @@ public class Main {
    public static void main(String[] args) throws Exception {
 	   Configuration conf = new Configuration();
 	   conf.set("fs.defaultFS","hdfs://localhost/user/cloudera:8020");
-	   
 	   readFile("/user/cloudera/bloom/bloomfilter", conf);
    }
    
@@ -31,44 +30,20 @@ public class Main {
 	    JFrame frame = new JFrame("Locations");
 	    frame.addWindowListener(new WindowListener() {
 			
-			public void windowOpened(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			public void windowIconified(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			public void windowDeiconified(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			public void windowDeactivated(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
+			public void windowOpened(WindowEvent e) {}
+			public void windowIconified(WindowEvent e) {}
+			public void windowDeiconified(WindowEvent e) {}
+			public void windowDeactivated(WindowEvent e) {}
 			
 			public void windowClosing(WindowEvent e) {
-				// TODO Auto-generated method stub
 				System.exit(0);
 			}
 			
-			public void windowClosed(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			public void windowActivated(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
+			public void windowClosed(WindowEvent e) {}
+			public void windowActivated(WindowEvent e) {}
 		});
 	    
 	    while(true) {
-		    
 		    String location = JOptionPane.showInputDialog(frame, "Enter the location");
 		    boolean result = false;
 		    if(location != null)
