@@ -1,0 +1,8 @@
+# Create a brand new HBase table using the following command
+	create 'testtable', 'data'
+	
+# Package the project into a FATJAR using the following
+	sudo mvn clean package -Dfatjar
+
+# Run the packaged FATJAR with the following
+	hadoop jar target/importFromCSV-0.0.1-job.jar ImportFromFileCustomized -t testtable -i source/Locations.csv
