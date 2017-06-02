@@ -16,5 +16,5 @@
 
 
 # Comparison of number of lines: Spark vs MapReduce
-Spark = 5
+Spark = 5  
 MapReduce = approximately 80, excluding boilerplate code
