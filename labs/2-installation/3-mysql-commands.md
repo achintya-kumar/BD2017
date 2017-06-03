@@ -3,6 +3,26 @@ To list the MySQL version:
 [achintya@kumarnode0 ~]$ mysql --version
 mysql  Ver 14.14 Distrib 5.5.56, for Linux (x86_64) using readline 5.1
 ```
+
+## Run MySQL secure installation
+```
+$ sudo /usr/bin/mysql_secure_installation
+[...]
+Enter current password for root (enter for none):
+OK, successfully used password, moving on...
+[...]
+Set root password? [Y/n] y
+New password:
+Re-enter new password:
+Remove anonymous users? [Y/n] Y
+[...]
+Disallow root login remotely? [Y/n] N
+[...]
+Remove test database and access to it [Y/n] Y
+[...]
+Reload privilege tables now? [Y/n] Y
+All done!
+```
 ## Database Creation
 ### Log into mysql server
 ```
