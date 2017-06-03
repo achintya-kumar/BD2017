@@ -25,7 +25,7 @@ cp cloudera-manager.repo /etc/yum.repos.d/
 sudo yum install -y oracle-j2sdk1.7
 ```
 
-ALTERNATIVE: The above can be also achieved by downloading an installer as shown below:
+## ALTERNATIVE: The above can be also achieved by downloading an installer as shown below:
 Download CM 5.8.3 installer as following:
 ```
 [achintya@kumarnode0 ~]$ wget http://archive.cloudera.com/cm5/installer/5.8.3/cloudera-manager-installer.bin
