@@ -3,7 +3,17 @@ To list the MySQL version:
 [achintya@kumarnode0 ~]$ mysql --version
 mysql  Ver 14.14 Distrib 5.5.56, for Linux (x86_64) using readline 5.1
 ```
-
+## Database Creation
+### Log into mysql server
+```
+mysql -u root
+```
+## Create Databases for SCM(scm), Activity Monitor(amon), Reports Manager(rman), Hive Metastore Server(hive), Hue Server(hue), Sentry Server(sentry), Cloudera Navigator Audit Server(nav), Cloudera Navigator Metadata Server(navms) and Oozie(oozie)
+For example:
+```
+create database amon DEFAULT CHARACTER SET utf8;
+grant all on amon.* TO 'amon'@'%' IDENTIFIED BY 'amon_password';
+```
 To show the list of databases:
 ```
 [achintya@kumarnode0 ~]$ mysql -u root -p
