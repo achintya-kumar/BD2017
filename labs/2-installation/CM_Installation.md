@@ -25,11 +25,16 @@ cp cloudera-manager.repo /etc/yum.repos.d/
 sudo yum install -y oracle-j2sdk1.7
 ```
 
-## ALTERNATIVE: The above can be also achieved by downloading an installer as shown below:
+## ALTERNATIVE: The above CM installation can be also achieved by downloading an installer as shown below: JDK will be installed as a part of the process and no separate installation is needed.
 Download CM 5.8.3 installer as following:
 ```
 [achintya@kumarnode0 ~]$ wget http://archive.cloudera.com/cm5/installer/5.8.3/cloudera-manager-installer.bin
 ```
+
+## Prepare databases for CM
+SYNTAX: ```sudo /usr/share/cmf/schema/scm_prepare_database.sh <database-type> <database-name> <username> <user_password>```
+Example:```sudo /usr/share/cmf/schema/scm_prepare_database.sh mysql scm scm scm_password```
+sudo
 Set password for all users (in my case, user ```achintya```) on all nodes:
 ```
 [achintya@kumarnode0 ~]$ passwd
