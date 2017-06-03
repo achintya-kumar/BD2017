@@ -50,17 +50,6 @@ public class AnalyzeData {
 
     private JSONParser parser = new JSONParser();
     private IntWritable ONE = new IntWritable(1);
-
-    // ^^ AnalyzeData
-    /**
-     * Maps the input.
-     *
-     * @param row The row key.
-     * @param columns The columns of the row.
-     * @param context The task context.
-     * @throws java.io.IOException When mapping the input fails.
-     */
-    // vv AnalyzeData
     @Override
     public void map(ImmutableBytesWritable row, Result columns, Context context) throws IOException {
       context.getCounter(Counters.ROWS).increment(1);
@@ -69,14 +58,8 @@ public class AnalyzeData {
         for (Cell cell : columns.listCells()) {
           context.getCounter(Counters.COLS).increment(1);
           value = Bytes.toStringBinary(cell.getValueArray(), cell.getValueOffset(), cell.getValueLength());
-//          JSONObject json = (JSONObject) parser.parse(value);
-//          String author = (String) json.get("author"); // co AnalyzeData-2-Parse Parse the JSON data, extract the author and count the occurrence.
-//          // ^^ AnalyzeData
-//          if (context.getConfiguration().get("conf.debug") != null)
-//            System.out.println("Author: " + author);
-//          // vv AnalyzeData
-          String author = value;
-          context.write(new Text(author), ONE);
+
+          context.write(new Text(value), ONE);
           context.getCounter(Counters.VALID).increment(1);
         }
       } catch (Exception e) {
@@ -88,46 +71,19 @@ public class AnalyzeData {
     }
   }
 
-  // ^^ AnalyzeData
   /**
    * Implements the <code>Reducer</code> part of the process.
    */
-  // vv AnalyzeData
-  static class AnalyzeReducer
-  extends Reducer<Text, IntWritable, Text, IntWritable> { // co AnalyzeData-3-Reducer Extend a Hadoop Reducer class, assigning the proper types.
+  static class AnalyzeReducer extends Reducer<Text, IntWritable, Text, IntWritable> { // co AnalyzeData-3-Reducer Extend a Hadoop Reducer class, assigning the proper types.
 
-    // ^^ AnalyzeData
-    /**
-     * Aggregates the counts.
-     *
-     * @param key The author.
-     * @param values The counts for the author.
-     * @param context The current task context.
-     * @throws IOException When reading or writing the data fails.
-     * @throws InterruptedException When the task is aborted.
-     */
-    // vv AnalyzeData
     @Override
     protected void reduce(Text key, Iterable<IntWritable> values,
       Context context) throws IOException, InterruptedException {
       int count = 0;
       for (IntWritable one : values) count++; // co AnalyzeData-4-Count Count the occurrences and emit sum.
-      // ^^ AnalyzeData
-      if (context.getConfiguration().get("conf.debug") != null)
-        System.out.println("Author: " + key.toString() + ", Count: " + count);
-      // vv AnalyzeData
       context.write(key, new IntWritable(count));
     }
   }
-
-  // ^^ AnalyzeData
-  /**
-   * Parse the command line parameters.
-   *
-   * @param args The parameters to parse.
-   * @return The parsed command line.
-   * @throws org.apache.commons.cli.ParseException When the parsing of the parameters fails.
-   */
   private static CommandLine parseArgs(String[] args) throws ParseException {
     Options options = new Options();
     Option o = new Option("t", "table", true,
@@ -177,8 +133,6 @@ public class AnalyzeData {
     String[] otherArgs =
       new GenericOptionsParser(conf, args).getRemainingArgs();
     CommandLine cmd = parseArgs(otherArgs);
-    // check debug flag and other options
-    if (cmd.hasOption("d")) conf.set("conf.debug", "true");
     // get details
     String table = cmd.getOptionValue("t");
     String column = cmd.getOptionValue("c");
