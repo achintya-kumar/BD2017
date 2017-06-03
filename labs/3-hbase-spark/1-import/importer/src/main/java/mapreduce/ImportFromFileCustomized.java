@@ -1,7 +1,5 @@
 package mapreduce;
 
-package mapreduce;
-
 import java.io.IOException;
 
 import org.apache.commons.cli.CommandLine;
