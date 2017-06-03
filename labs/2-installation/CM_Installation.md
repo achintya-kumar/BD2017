@@ -32,9 +32,14 @@ Download CM 5.8.3 installer as following:
 ```
 
 ## Prepare databases for CM
-SYNTAX: ```sudo /usr/share/cmf/schema/scm_prepare_database.sh <database-type> <database-name> <username> <user_password>```
-Example:```sudo /usr/share/cmf/schema/scm_prepare_database.sh mysql scm scm scm_password```
-sudo
+SYNTAX: 
+```
+sudo /usr/share/cmf/schema/scm_prepare_database.sh <database-type> <database-name> <username> <user_password>
+```
+Example:
+```
+sudo /usr/share/cmf/schema/scm_prepare_database.sh mysql scm scm scm_password
+```
 Set password for all users (in my case, user ```achintya```) on all nodes:
 ```
 [achintya@kumarnode0 ~]$ passwd
@@ -42,7 +47,7 @@ New password:
 Retype new password:
 passwd: all authentication tokens updated successfully.
 ```
-Enable password login for CM on all nodes:
+# Enable password login for CM on all nodes:
 ```
 [achintya@kumarnode0 ~]$ sudo perl -p -i -e "s/^PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_config
 [achintya@kumarnode0 ~]$ sudo service sshd restart
