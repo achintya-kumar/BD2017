@@ -20,9 +20,12 @@ Finally, copy this edited file to ```/etc/yum.repos.d/```
 ```
 cp cloudera-manager.repo /etc/yum.repos.d/ 
 ```
+## Install Oracle JDK 1.7 (This will work only after the cloudera-manager.repo file has been downloaded and placed in the right location)
+```
+sudo yum install -y oracle-j2sdk1.7
+```
 
-
-The above can be also achieved by downloading an installer as shown below:
+ALTERNATIVE: The above can be also achieved by downloading an installer as shown below:
 Download CM 5.8.3 installer as following:
 ```
 [achintya@kumarnode0 ~]$ wget http://archive.cloudera.com/cm5/installer/5.8.3/cloudera-manager-installer.bin
