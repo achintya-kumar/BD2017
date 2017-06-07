@@ -35,7 +35,10 @@ Download CM 5.8.3 installer as following:
 ```
 [achintya@kumarnode0 ~]$ wget http://archive.cloudera.com/cm5/installer/5.8.3/cloudera-manager-installer.bin
 ```
-
+## Install Cloudera Manager Server and Cloudera Manager Daemons
+```
+sudo yum install cloudera-manager-daemons cloudera-manager-server
+```
 ## Prepare databases for CM
 SYNTAX: 
 ```
