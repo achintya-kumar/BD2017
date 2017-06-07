@@ -13,32 +13,6 @@ As mentioned above, the default version of MySQL enabled in this repository is 5
 [achintya@kumarnode1 ~]$ sudo yum update -y
 ```
 
-#### Install the mysql package on all nodes
-On other nodes, the following must be executed:
-```
-sudo yum install mysql
-```
-The important output is enclosed below:
-```
-Transaction Summary
-================================================================================
-Install       1 Package(s)
-
-Total download size: 15 M
-Installed size: 65 M
-Is this ok [y/N]: y
-Downloading Packages:
-mysql-community-client-5.5.56-2.el6.x86_64.rpm           |  15 MB     00:00     
-Running rpm_check_debug
-Running Transaction Test
-Transaction Test Succeeded
-Running Transaction
-  Installing : mysql-community-client-5.5.56-2.el6.x86_64                   1/1 
-  Verifying  : mysql-community-client-5.5.56-2.el6.x86_64                   1/1 
-
-Installed:
-  mysql-community-client.x86_64 0:5.5.56-2.el6 
-```
 #### Install mysql-server on the server
 Once the required versions are enabled, the installed repositories must be updated and the required programs must be installed as follows:
 ```
@@ -80,6 +54,33 @@ Dependency Installed:
   mysql-community-client.x86_64 0:5.5.56-2.el6                    
   mysql-community-common.x86_64 0:5.5.56-2.el6                    
   mysql-community-libs.x86_64 0:5.5.56-2.el6 
+```
+
+#### Install the mysql package on all OTHER nodes
+On other nodes, the following must be executed:
+```
+sudo yum install mysql
+```
+The important output is enclosed below:
+```
+Transaction Summary
+================================================================================
+Install       1 Package(s)
+
+Total download size: 15 M
+Installed size: 65 M
+Is this ok [y/N]: y
+Downloading Packages:
+mysql-community-client-5.5.56-2.el6.x86_64.rpm           |  15 MB     00:00     
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing : mysql-community-client-5.5.56-2.el6.x86_64                   1/1 
+  Verifying  : mysql-community-client-5.5.56-2.el6.x86_64                   1/1 
+
+Installed:
+  mysql-community-client.x86_64 0:5.5.56-2.el6 
 ```
 
 #### Display MySQL Version
