@@ -1,4 +1,5 @@
 #Place this download inside /root
+#NOTE: this needs to be done on every node of the cluster, else the HDFS will fail to start
 
 wget \
     --no-cookies \
