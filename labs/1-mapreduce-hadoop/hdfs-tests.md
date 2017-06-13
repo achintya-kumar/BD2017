@@ -1,7 +1,7 @@
 # 1. Teragen task
 ## For running teragen to create a 5GB file with 6 mappers and 16MB block-size
 ```
-time hadoop jar /opt/cloudera//parcels/CDH/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar teragen -Ddfs.blocksize=16M -Dmapred.map.tasks=6 50000000 /user/achintya-kumar/terasort/terasort-input
+time hadoop jar /opt/cloudera/parcels/CDH/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar teragen -Ddfs.blocksize=16M -Dmapred.map.tasks=6 50000000 /user/achintya-kumar/terasort/terasort-input
 ```
 ## Time taken
 ```
