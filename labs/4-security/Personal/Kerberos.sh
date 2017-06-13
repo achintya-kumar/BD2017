@@ -33,11 +33,11 @@ yum install -y krb5-workstation
 # of the file before making edits in place
 # 
 # set the Realm
-sed -i.orig 's/EXAMPLE.COM/CLOUDERA/g' /etc/krb5.conf
+sed -i.orig 's/EXAMPLE.COM/ACHINTYA-KUMAR/g' /etc/krb5.conf
 # set the hostname for the kerberos server
 sed -i.m1 's/kerberos.example.com/quickstart.cloudera/g' /etc/krb5.conf
 # change domain name to cloudera 
-sed -i.m2 's/example.com/cloudera/g' /etc/krb5.conf
+sed -i.m2 's/example.com/achintya-kumar/g' /etc/krb5.conf
 
 # download UnlimitedJCEPolicyJDK7.zip from Oracle into
 # the /root directory
@@ -61,7 +61,7 @@ kdb5_util create -s
 echo suggested password is cloudera 
 
 # update the kdc.conf file
-sed -i.orig 's/EXAMPLE.COM/CLOUDERA/g' /var/kerberos/krb5kdc/kdc.conf
+sed -i.orig 's/EXAMPLE.COM/ACHINTYA-KUMAR/g' /var/kerberos/krb5kdc/kdc.conf
 # this will add a line to the file with ticket life
 sed -i.m1 '/dict_file/a max_life = 1d' /var/kerberos/krb5kdc/kdc.conf
 # add a max renewable life
@@ -71,7 +71,7 @@ sed -i.m3 's/^max_/  max_/' /var/kerberos/krb5kdc/kdc.conf
 
 # the acl file needs to be updated so the */admin
 # is enabled with admin privileges 
-sed -i 's/EXAMPLE.COM/CLOUDERA/' /var/kerberos/krb5kdc/kadm5.acl
+sed -i 's/EXAMPLE.COM/ACHINTYA-KUMAR/' /var/kerberos/krb5kdc/kadm5.acl
 
 # The kerberos authorization tickets need to be renewable
 # if not the Hue service will show bad (red) status
@@ -108,7 +108,7 @@ service kadmin start
 #
 
 kadmin.local <<eoj
-modprinc -maxrenewlife 1week krbtgt/CLOUDERA@CLOUDERA
+modprinc -maxrenewlife 1week krbtgt/ACHINTYA-KUMAR@ACHINTYA-KUMAR
 eoj
 # now just add a few user principals 
 #kadmin:  addprinc -pw <Password>
@@ -117,24 +117,24 @@ eoj
 # add the admin user that CM will use to provision
 # kerberos in the cluster
 kadmin.local <<eoj
-addprinc -pw cloudera cloudera-scm/admin@CLOUDERA
-modprinc -maxrenewlife 1week cloudera-scm/admin@CLOUDERA
+addprinc -pw cloudera cloudera-scm/admin@ACHINTYA-KUMAR
+modprinc -maxrenewlife 1week cloudera-scm/admin@ACHINTYA-KUMAR
 eoj
 
 # add the hdfs principal so you have a superuser for hdfs
 kadmin.local <<eoj
-addprinc -pw cloudera hdfs@CLOUDERA
+addprinc -pw cloudera hdfs@ACHINTYA-KUMAR
 eoj
 
 # add a cloudera principal  for the standard user 
 # in the Cloudera Quickstart VM
 kadmin.local <<eoj
-addprinc -pw cloudera cloudera@CLOUDERA
+addprinc -pw cloudera cloudera@ACHINTYA-KUMAR
 eoj
 
 # test the server by authenticating as the CM admin user
 # enter the password cloudera when you are prompted
-kinit cloudera-scm/admin@CLOUDERA
+kinit cloudera-scm/admin@ACHINTYA-KUMAR
 
 # once you have a valid ticket you can see the 
 # characteristics of the ticket with klist -e
