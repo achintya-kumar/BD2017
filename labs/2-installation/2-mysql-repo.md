@@ -3,14 +3,14 @@
 The Linux distribution in use is CentOS 6.9 which is categorized as EL6.
 An rpm file is downloaded and installed using the following commands. It is necessary to point out that in the installed rpm file, MySQL 5.6 is enabled by default.
 ```
-[achintya@kumarnode1 ~]$ wget http://repo.mysql.com/mysql-community-release-el6-7.noarch.rpm
-[achintya@kumarnode1 ~]$ sudo rpm -ivh mysql-community-release-el6-7.noarch.rpm
+wget http://repo.mysql.com/mysql-community-release-el6-7.noarch.rpm
+sudo rpm -ivh mysql-community-release-el6-7.noarch.rpm
 ```
 As mentioned above, the default version of MySQL enabled in this repository is 5.6. This maybe altered using the following commands.
 ```
-[achintya@kumarnode1 ~]$ sudo yum-config-manager --disable mysql56-community
-[achintya@kumarnode1 ~]$ sudo yum-config-manager --enable mysql55-community
-[achintya@kumarnode1 ~]$ sudo yum update -y
+sudo yum-config-manager --disable mysql56-community
+sudo yum-config-manager --enable mysql55-community
+sudo yum update -y
 ```
 
 #### Install mysql-server on the server
@@ -85,23 +85,23 @@ Installed:
 
 #### Display MySQL Version
 ```
-[achintya@kumarnode1 ~]$ mysql --version
+mysql --version
 mysql  Ver 14.14 Distrib 5.5.56, for Linux (x86_64) using readline 5.1
 ```
 
 #### Download and copy the JDBC connector to all nodes.
 Download the MySQL JDBC driver:
 ```
-[achintya@kumarnode1 ~]$ wget https://cdn.mysql.com//Downloads/Connector-J/mysql-connector-java-5.1.42.tar.gz
+wget https://cdn.mysql.com//Downloads/Connector-J/mysql-connector-java-5.1.42.tar.gz
 
 ```
 The JDBC JAR file is extracted as follows:
 ```
-[achintya@kumarnode1 ~]$ tar zxvf mysql-connector-java-5.1.42.tar.gz
+tar zxvf mysql-connector-java-5.1.42.tar.gz
 ```
 Copy the JDBC driver JAR file to ```/usr/share``` folder.
 ```
-[achintya@kumarnode1 ~]$ sudo cp mysql-connector-java-5.1.42/mysql-connector-java-5.1.42.jar /usr/share/java/mysql-connector-java.jar
+sudo cp mysql-connector-java-5.1.42/mysql-connector-java-5.1.42.jar /usr/share/java/mysql-connector-java.jar
 ```
 
 ### YUM repository file
