@@ -2,7 +2,7 @@ echo This must be executed as root. Make sure you're root or Cancel.
 read foo
 echo adding a principal for a new user
 kadmin.local <<eoj
-addprinc -pw cloudera hdfs@ACHINTYA-KUMAR
+addprinc -pw raffles raffles@ACHINTYA-KUMAR
 eoj
 echo clearing credentials cache
 kdestroy
