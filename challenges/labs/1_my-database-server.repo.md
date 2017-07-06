@@ -1,3 +1,4 @@
+```
 [ec2-user@ip-172-31-12-116 ~]$ cat /etc/yum.repos.d/mysql-community.repo 
 [mysql-connectors-community]
 name=MySQL Connectors Community
@@ -35,4 +36,4 @@ baseurl=http://repo.mysql.com/yum/mysql-5.7-community/el/6/$basearch/
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
-
+```
