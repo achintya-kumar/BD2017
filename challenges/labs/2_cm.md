@@ -1,3 +1,4 @@
+### Writing to ```db.properties``` file
 ```
 sudo /usr/share/cmf/schema/scm_prepare_database.sh mysql scm scm scm_password
 sudo /usr/share/cmf/schema/scm_prepare_database.sh mysql rman rman rman_password
