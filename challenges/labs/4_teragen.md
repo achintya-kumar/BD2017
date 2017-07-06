@@ -77,3 +77,15 @@ Found 9 items
 -rw-r--r--   3 neymar supergroup  819200000 2017-07-06 12:44 /user/neymar/tgen640/part-m-00006
 -rw-r--r--   3 neymar supergroup  819200000 2017-07-06 12:44 /user/neymar/tgen640/part-m-00007
 ```
+
+### Showing number of blocks within ```/user/neymar/tgen640``` directory
+```
+[neymar@ip-172-31-7-238 ec2-user]$ hdfs fsck /user/neymar/tgen640 -files -blocks | grep blocks
+Connecting to namenode via http://ip-172-31-12-116.eu-central-1.compute.internal:50070
+ Total blocks (validated):	392 (avg. block size 16718367 B)
+ Minimally replicated blocks:	392 (100.0 %)
+ Over-replicated blocks:	0 (0.0 %)
+ Under-replicated blocks:	0 (0.0 %)
+ Mis-replicated blocks:		0 (0.0 %)
+ Corrupt blocks:		0
+```
