@@ -1,3 +1,4 @@
+## These commands were executed on all notes with same results
 ### Add users with specific UIDs
 ```
 sudo adduser neymar -u 2010
