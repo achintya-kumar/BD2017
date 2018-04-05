@@ -6,7 +6,10 @@ mysql  Ver 14.14 Distrib 5.5.56, for Linux (x86_64) using readline 5.1
 
 ## Run MySQL secure installation
 ```
-$ sudo /usr/bin/mysql_secure_installation
+# Make sure mysqld is running
+sudo service mysqld start
+sudo /usr/bin/mysql_secure_installation
+
 [...]
 Enter current password for root (enter for none):
 OK, successfully used password, moving on...
@@ -31,8 +34,25 @@ mysql -u root
 ## Create Databases for SCM(scm), Activity Monitor(amon), Reports Manager(rman), Hive Metastore Server(hive), Hue Server(hue), Sentry Server(sentry), Cloudera Navigator Audit Server(nav), Cloudera Navigator Metadata Server(navms) and Oozie(oozie)
 For example:
 ```
+create database scm DEFAULT CHARACTER SET utf8;
 create database amon DEFAULT CHARACTER SET utf8;
+create database rman DEFAULT CHARACTER SET utf8;
+create database hive DEFAULT CHARACTER SET utf8;
+create database hue DEFAULT CHARACTER SET utf8;
+create database sentry DEFAULT CHARACTER SET utf8;
+create database nav DEFAULT CHARACTER SET utf8;
+create database navms DEFAULT CHARACTER SET utf8;
+create database oozie DEFAULT CHARACTER SET utf8;
+
+grant all on scm.* TO 'scm'@'%' IDENTIFIED BY 'scm_password';
 grant all on amon.* TO 'amon'@'%' IDENTIFIED BY 'amon_password';
+grant all on rman.* TO 'rman'@'%' IDENTIFIED BY 'rman_password';
+grant all on hive.* TO 'hive'@'%' IDENTIFIED BY 'hive_password';
+grant all on hue.* TO 'hue'@'%' IDENTIFIED BY 'hue_password';
+grant all on sentry.* TO 'sentry'@'%' IDENTIFIED BY 'sentry_password';
+grant all on nav.* TO 'nav'@'%' IDENTIFIED BY 'nav_password';
+grant all on navms.* TO 'navms'@'%' IDENTIFIED BY 'navms_password';
+grant all on oozie.* TO 'oozie'@'%' IDENTIFIED BY 'oozie_password';
 ```
 To show the list of databases:
 ```
