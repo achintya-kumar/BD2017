@@ -1,7 +1,7 @@
 ### The nodes used for this assignment have the following specifications:
-Operating System: CentOS 6.9  
-Hardware: Standard DS11 (2 cores, 14 GB memory) from Microsoft Azure  
-Number of Nodes: 2
+Operating System: CentOS 6.9 minimal <br>
+Hardware: Standard DS11 (2 cores, 14 GB memory) from Microsoft Azure; recently on Fujitsu RX2540 (24 vCPUs, 128GB RAM)<br>
+Number of Nodes: Minimum 4 (1-master and 3 slaves)
 
 ### Disable SELinux & Kernel Firewall
 The value of the parameter ```SELINUX``` must be set to ```disabled```.
@@ -66,12 +66,15 @@ tmpfs           6,9G     0  6,9G   0% /dev/shm
 #### TBD
 ### Disable Transparent Hugepage Support
 
-To disable transparent hugepage compaction, the following must be appended to ```/etc/rc.local```.
+To disable transparent hugepage compaction, the following must be appended to ```/etc/rc.local```.<br>
+```sudo nano /etc/rc.local```
+<br>Insert the following in the above file:
+
 ```
 echo never > /sys/kernel/mm/transparent_hugepage/defrag
 echo never > /sys/kernel/mm/transparent_hugepage/enabled
 ```
-Additionally, appent ```transparent_hugepage=never``` to the line ```kernel``` inside the file ```/etc/grub.conf```.
+Additionally, run ```sudo nano /etc/grub.conf``` and append ```transparent_hugepage=never``` to the line ```kernel```.
 ### Network Interface Configuration
 ```
 [achintya@kumarnode0 ~]$ ifconfig 
@@ -133,10 +136,18 @@ nscd (pid 2292) is running...
 ### Show the ```ntpd``` service is running
 Starting and checking the status of ```ntpd```:
 ```
-[achintya@kumarnode0 ~]$ sudo service ntpd start
-[achintya@kumarnode0 ~]$ sudo chkconfig ntpd on
-[achintya@kumarnode0 ~]$ sudo service ntpd status
+sudo yum install ntp -y
+sudo service ntpd start
+sudo chkconfig ntpd on
+sudo service ntpd status
+```
+Make sure the following status is shown for ntp:
+```
 ntpd (pid  1602) is running...
 ```
+
+### Set ulimits for common users
+```sudo nano /etc/security/limits.d/90-nproc.conf```<br>
+Set the value ```1024``` on category ```*``` to ```4096```.<br>
 ## Reboot
 ```sudo reboot```
