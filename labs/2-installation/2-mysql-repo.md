@@ -92,16 +92,18 @@ mysql  Ver 14.14 Distrib 5.5.56, for Linux (x86_64) using readline 5.1
 #### Download and copy the JDBC connector to all nodes.
 Download the MySQL JDBC driver:
 ```
-wget https://cdn.mysql.com//Downloads/Connector-J/mysql-connector-java-5.1.42.tar.gz
+wget https://cdn.mysql.com//Downloads/Connector-J/mysql-connector-java-5.1.44.tar.gz
 
 ```
 The JDBC JAR file is extracted as follows:
 ```
-tar zxvf mysql-connector-java-5.1.42.tar.gz
+tar zxvf mysql-connector-java-5.1.44.tar.gz
 ```
 Copy the JDBC driver JAR file to ```/usr/share``` folder.
 ```
-sudo cp mysql-connector-java-5.1.42/mysql-connector-java-5.1.42.jar /usr/share/java/mysql-connector-java.jar
+# On minimal images of CentOS, /usr/share/java does not exist.
+sudo mkdir /usr/share/java
+sudo cp mysql-connector-java-5.1.42/mysql-connector-java-5.1.44-bin.jar /usr/share/java/mysql-connector-java.jar
 ```
 
 ### YUM repository file
