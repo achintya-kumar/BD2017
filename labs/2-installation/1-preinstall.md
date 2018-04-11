@@ -1,6 +1,6 @@
 ### The nodes used for this assignment have the following specifications:
 Operating System: CentOS 6.9 minimal <br>
-Hardware: Standard DS11 (2 cores, 14 GB memory) from Microsoft Azure; recently on Fujitsu RX2540 (24 vCPUs, 128GB RAM)<br>
+Hardware: Standard DS11 (2 cores, 14 GB memory) from Microsoft Azure; recently on Fujitsu RX2530 (24 vCPUs, 128GB RAM)<br>
 Number of Nodes: Minimum 4 (1-master and 3 slaves)
 
 ### Disable SELinux & Kernel Firewall
