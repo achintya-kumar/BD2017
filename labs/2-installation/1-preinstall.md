@@ -35,6 +35,8 @@ systemctl stop firewalld
 systemctl status firewalld
 
 ```
+If the above step is not completed, you might run into an error of the following type:<br>
+```IOException thrown while collecting data from host: No route to host (CDH Host Inspector)```
 
 ### Checking and setting swappiness
 Display swappiness value:
