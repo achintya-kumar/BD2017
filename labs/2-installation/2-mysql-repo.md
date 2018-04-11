@@ -108,7 +108,7 @@ Copy the JDBC driver JAR file to ```/usr/share``` folder.
 ```
 # On minimal images of CentOS, /usr/share/java does not exist.
 sudo mkdir /usr/share/java
-sudo cp mysql-connector-java-5.1.42/mysql-connector-java-5.1.44-bin.jar /usr/share/java/mysql-connector-java.jar
+sudo cp mysql-connector-java-5.1.44/mysql-connector-java-5.1.44-bin.jar /usr/share/java/mysql-connector-java.jar
 ```
 
 ### YUM repository file
