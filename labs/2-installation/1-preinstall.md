@@ -22,10 +22,18 @@ SELINUXTYPE=targeted
 ```
 Let us now disable the kernel firewall.
 ```
+# FOR CENTOS 6
 sudo /etc/init.d/iptables stop
 sudo /etc/init.d/ip6tables stop
 sudo chkconfig iptables off
 sudo chkconfig ip6tables off
+
+# FOR CENTOS 7
+systemctl disable firewalld
+systemctl stop firewalld
+# for checking firewall status
+systemctl status firewalld
+
 ```
 
 ### Checking and setting swappiness
