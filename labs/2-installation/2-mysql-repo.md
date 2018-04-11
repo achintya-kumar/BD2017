@@ -3,8 +3,13 @@
 The Linux distribution in use is CentOS 6.9 which is categorized as EL6.
 An rpm file is downloaded and installed using the following commands. It is necessary to point out that in the installed rpm file, MySQL 5.6 is enabled by default.
 ```
+# FOR CENTOS 6
 wget http://repo.mysql.com/mysql-community-release-el6-7.noarch.rpm
 sudo rpm -ivh mysql-community-release-el6-7.noarch.rpm
+
+# FOR CENTOS 7
+wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm
 ```
 As mentioned above, the default version of MySQL enabled in this repository is 5.6. This maybe altered using the following commands.
 ```
