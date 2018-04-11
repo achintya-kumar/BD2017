@@ -1,7 +1,11 @@
 ### CM/CDH Installation commands
 Download CM 5.8.3 repo file as following:
 ```
+# FOR CENTOS 6
 wget https://archive.cloudera.com/cm5/redhat/6/x86_64/cm/cloudera-manager.repo
+
+# FOR CENTOS 7
+wget https://archive.cloudera.com/cm5/redhat/7/x86_64/cm/cloudera-manager.repo
 ```
 Edit the downloaded repo file and edit the ```baseurl``` as follows:
 ```
